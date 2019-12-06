@@ -1,0 +1,30 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{Lit Review}
+\author{Ben Hull }
+\date{December 2019}
+
+\begin{document}
+
+\maketitle
+
+\section{Uses of Laziness}
+
+Uses of laziness
+
+Lazy Evaluation has been a key feature of many functional programming languages since the 80s. John Hughes influential paper “Why Functional Programming Matters” (Hughes, 1989) mentions that lazy evaluation is important as it allows for greater modularity in programming by allowing for features such as infinite lists. Hughes also states that lazy evaluation can’t be done in non functional languages due to the presence of side effects. However, many of the techniques he demonstrates using functional programming and lazy evaluation can be now done in a similar way using new features, not available at the time, that allow for limited lazy evaluation in a functional manner in non functional languages such as Streams in Java and Generators in Python. Furthermore “Lazy Imperative programming”  (Launchbury, 1993) shows how imperative or programming requiring state can be done within Haskell and within laziness using the state monad.  In “Lazier Imperative Programming” (Douence & Tabareau, 2014) expand on this by showing how it can be made lazier and showing a general framework for this. 
+
+Lazy evaluation is also useful in the implementation of functional data structures as shown in Chris Oksaki book “Functional Data Structures” (Okasaki, 1999). While this book covers many data structures that take advantage of laziness and functional programming in general, It is fairly dated at this point such as the programming language used being Standard ML rather than OCaml or Haskell. Due to the works age (the book was published in 1998) I decided to see the latest research in this area. “Lightweight semiformal time complexity analysis for purely functional data structures show how complexity analysis can be done on functional data structures through uisng a library to analyze the data structures for complexity .(Danielsson, 2008). “Inductive benchmarking for purely functional data structures” ((Moss & Runciman, 2001) shows how the use of Auburn (a tool for inductive benchmarking) can be used to analyze functional data structures. This is useful for my project as it directly shows how functional data structures can be analyzed and benchmarked. On the JVM (‘Lacuna/bifurcan’, 2018) compares and benchmarks data structures in the JVM from the different Java libs and the Scala and Clojure standard library.. Whie this is useful it would be nice to see other scala data structures libraries in them as the Scala  standard collections library is known for being slow and has weird bugs. https://ufal.ms.mff.cuni.cz/~straka/papers/2010-containers.pdf (will reference properly later) analyzes and provides benchmarks for the standard Haskell container library. Although this is useful as it gives a point of reference, the papers age (it was published in 2010) means that there are likely to have been large improvements to Haskell's standard containers library by then, so the data is likely to be outdated. 
+ 
+In other progamming languages (than the Haskell family), the use of laziness is much more limited. “On the Design, Implementation, and Use of Laziness in R” (Goel & Vitek, 2019) shows that the use of laziness by the R community is limited by analyzing libraries in the main R code repository CRAN.  A Haskell community survey  also shows that many Haskell programmers struggle to reason about the perforance of their code likely due to lazy evaluation.  https://taylor.fausak.me/2019/11/16/haskell-survey-results/ 
+
+
+\section{Benchmarking}
+
+
+“Energy Efficiency across Programming Languages”  (Lima et al., 2016) compares the energy, time and memory efficiency of a variety of programming languages through different benchmarks on a x86 Haswell platform, although it doesn’t  seem to compare or consider the use and impact of AVX/SIMD instructions, that are becoming more common among HPC programmers, but are also supported in the JVM and the CLR, which do have an impact on energy consumption and speed as demonstrated in (Guermouche & Orgerie, n.d.). “Measuring the Haskell Gap” (Petersen, Anderson, Liu, & Glew, 2014)however does back up this paper in showing that Haskell is considerably slower than C by showing that there is still a big gap between C and Haskell in many benchmarks in more low level detail especially when this C code is optimized  although it does not consider energy consumption. In “Haskell in Green Land: Analyzing the Energy Behavior of a Purely Functional Language” (Lima et al., 2016) “ show how the GHC profiler can be hooked onto other benchmarking programs to allow the measurements of energy consumption and uses it to measure the energy consumption of Haskell on a variety of benchmarks.   
+
+
+
+\end{document}
